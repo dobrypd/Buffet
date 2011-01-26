@@ -19,7 +19,7 @@ wizualizacja_grup = function(k, Gr) {
    old.par = par(no.readonly = TRUE)
    colors = rainbow(k)
    par(mfrow=c(3,2))
-   for( i in 1:k){
+   for(i in 1:k){
       barplot(c(Gr[2, i], Gr[3,i]), 
               main = paste("Pr. grupa: ",i, ", cena graniczna: ", Gr[1, i]), 
               xlab = "przy niższej cenie / przy wyższej", 
@@ -29,18 +29,32 @@ wizualizacja_grup = function(k, Gr) {
         main="Częstość występowania ceny granicznej", 
         xlab="Cena", ylab="Częstość", 
         breaks=5, col=colors)
-   #barplot(c(Gr[2,], Gr[3,]), beside=FALSE)
    par(old.par)
 }
 
-#testowanie danej kombinacji M, k, strategia
-test = function(M, k, strategia) {
+#testowanie danej kombinacji M, k, grupa, strategia
+test = function(M, k, Grupy, strategia.podajcene, strategia.aktualizuj, strategia.wynik_koncowy) {
    source("./dane.r")
-   Grupy = generuj_grupy(k)
    #wizualizacja powstałych grup
    wizualizacja_grup(k, Grupy)
    
-   
+   zarobek = rep(0, M) #zarobek w dniu i = zarobek[i]
+   for(i in 1:M) {
+      #każdy klient każdego dnia przychodzi do bufetu
+      klient_z_grupy = sample(rep(1:k, N/k))
+      kupil = rep(TRUE, N)
+      
+      akt_cena = strategia.podajcene()
+
+      for(j in 1:N) {
+         if (sample(c(TRUE, FALSE), p) {
+            kupil[j] = true
+         } else {
+            kupil[j] = false
+         }
+      }
+      strategia_aktualizuj(kupil)
+   }
 }
 
 #testowanie ogólniejsze
