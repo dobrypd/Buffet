@@ -33,28 +33,42 @@ wizualizacja_grup = function(k, Gr) {
 }
 
 #testowanie danej kombinacji M, k, grupa, strategia
-test = function(M, k, Grupy, strategia.podajcene, strategia.aktualizuj, strategia.wynik_koncowy) {
-   source("./dane.r")
-   #wizualizacja powstałych grup
-   wizualizacja_grup(k, Grupy)
+#dla danej strategii, od razu porównuję ją do optymalnej i do losowej
+test = function(M, k, Grupy, strategia.podajkoszt, strategia.pobiez_raport_dnia, strategia.wynik_koncowy) {
+   source("./dane.r")            #stałe
+   wizualizacja_grup(k, Grupy)   #grafy pokazujące dane grupy
    
-   zarobek = rep(0, M) #zarobek w dniu i = zarobek[i]
-   for(i in 1:M) {
-      #każdy klient każdego dnia przychodzi do bufetu
-      klient_z_grupy = sample(rep(1:k, N/k))
-      kupil = rep(TRUE, N)
+   zarobek = rep(0, M)           #zarobek w dniu i = zarobek[i]
+   
+   for(i in 1:M) {   #ity dzień
+      akt_koszt = strategia.podajkoszt()        #jaki koszt na dziś, może nowy
+      akt_koszt_losowy = sample(1:10, 1)         #a gdyby koszt był losowy?
+      #akt_koszt_optymalny = wartosc_oczekiwana()#a tutaj koszt jest optymalny, dla porównania tej strategii
       
-      akt_cena = strategia.podajcene()
-
-      for(j in 1:N) {
-         if (sample(c(TRUE, FALSE), p) {
-            kupil[j] = true
+      klient_z_grupy = sample(rep(1:k, N/k))    #klienci z danej grupy przychodzą losowo
+      
+      ile_kupilo_grupa = 1:k                    #ile kupilo z danej grupy
+      ile_kupilo_strategia = 1:3
+      kupil = rep(FALSE, N)                     #informacja o tych którzy kupili (przekazywana pod koniec dnia)
+      kupil_optymalna = rep(FALSE, N)           #ile by kupilo w strategii optymalnej
+      kupil_losowa = rep(FALSE, N)              #ile by kupilo w strategii losowej
+      pr_kupi = rep(0, k)                       #licze sobie aktualne prawdopodobienstwo dla kazdej grupy
+      for(ik in 1:k) {
+         if(akt_koszt < Grupy[1, ik]) {
+            pr_kupi[ik] = Grupy[2, ik]
          } else {
-            kupil[j] = false
+            pr_kupi[ik] = Grupy[3, ik]
          }
       }
-      strategia_aktualizuj(kupil)
+      for(j in 1:N) {   #jty klient itego dnia
+         kupil[j] = sample(c(TRUE, FALSE), 1, prob = c(pr_kupi[klient_z_grupy[j]], 1-pr_kupi[klient_z_grupy[j]]) )
+      }
+      strategia.pobiez_raport_dnia(kupil)
    }
+   
+   strategia.wynik_koncowy();
+   
+   #raport - wykresy
 }
 
 #testowanie ogólniejsze
