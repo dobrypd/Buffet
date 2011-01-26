@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Model}{1}
+\contentsline {section}{\numberline {2}Strategie}{1}
+\contentsline {subsection}{\numberline {2.1}Strategia losowa}{1}
+\contentsline {subsection}{\numberline {2.2}Strategia optymalna}{1}
+\contentsline {section}{\numberline {3}Testowanie}{1}
+\contentsline {section}{\numberline {4}Wnioski}{1}
