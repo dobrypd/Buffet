@@ -8,7 +8,7 @@ C = 10
 #klienci bufetu
 N = 240
 
-#maksymalna liczba dli
+#maksymalna liczba dni
 MAXN = 1000
 
 #maksymalna liczba grup
