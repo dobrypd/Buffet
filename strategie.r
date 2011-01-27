@@ -30,9 +30,11 @@ strategia_losowa = c(strategia_losowa_inicjuj, strategia_losowa_koszt,
 
 # #####strategia optymalna##### #
 koszt = 0
-strategia_optymalna_inicjuj_0 = function(Grupy) {
-   #aby była optymalna muszę znać grupy
-   #licze wartosc oczekiwaną
+jak_duzo = MAXN
+strategia_optymalna_inicjuj_0 = function(Grupy, k) {
+   EX = sum(C*Grupy[2,]) + sum((C-Grupy[1,])*Grupy[3,])
+   koszt = C - (EX)/(2*k)
+   return(koszt)
 }
 strategia_optymalna_inicjuj_1  = function(M) {
    #nic nie robię#

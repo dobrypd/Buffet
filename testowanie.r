@@ -3,6 +3,8 @@
 #plik: testowanie.r
 
 #TODO: generowanie grup
+#moze generowanie grup z jakims parametrem jeszcze - np
+# function(k, h) gdzie h to parametr grupy
 generuj_grupy =  function(k) {
    g1 = c(2, 0.5, 0.5)
    g2 = c(4, 0.2, 0.6)
@@ -28,7 +30,7 @@ symulacja = function(M, k, Grupy, strategia) {
    
    for(i in 1:M) {   #ity dzień     
       if (i %% (M/10) == 0) {
-         print(paste("Symulacja: ", (i/M) * 100 , "% "))
+         print(paste("Symulacja: ", (i/M) * 100 , "%"))
       }
       koszt[i] = strategia[[2]]()            #jaki koszt na dziś, może nowy
       
@@ -98,13 +100,15 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    names(ilu_kupilo) = nazwy_str
    names(zarobek) = nazwy_str
    
-   returned = metoda_symulacji(M, k, Grupy, strategia_losowa);
-   returned2 = metoda_symulacji(M, k, Grupy, strategia_losowa);
-   #returned3 = metoda_symulacji(M, k, Grupy, strategia_losowa);
-   #jpeg('wykres.jpg')
-   x = factor(returned[,1])
+   losowo      = metoda_symulacji(M, k, Grupy, strategia_losowa)
+   strategia_optymalna_inicjuj_0(Grupy)
+   optymalnie  = metoda_symulacji(M, k, Grupy, strategia_optymalna)
    
-   plot(returned[,1] ,
+   #jpeg('wykres.jpg')
+   l = factor(losowo[,1])
+   o = factor(optymalnie[,1])
+   
+   plot(x ,
         ylab = "Osób kupiło danego dnia", xlab = "Numer dnia", 
         col="red", pch=16)
    #plot(returned[,1] , ylab = "Osób kupiło danego dnia", xlab = "Numer dnia", col ="gray")
