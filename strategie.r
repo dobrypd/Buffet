@@ -19,7 +19,7 @@ strategia_losowa_koszt  = function() {
    return(sample(0:10, 1))
 }
 strategia_losowa_koniec_dnia  = function(kupil) {
-   #nic nie robię#   
+   #nic nie robię#
 }
 strategia_losowa_wynik = function() {
    return (1:5)
@@ -31,22 +31,38 @@ strategia_losowa = c(strategia_losowa_inicjuj, strategia_losowa_koszt,
 # #####strategia optymalna##### #
 koszt = 0
 jak_duzo = MAXN
-strategia_optymalna_inicjuj_0 = function(Grupy, k) {
-   EX = sum(C*Grupy[2,]) + sum((C-Grupy[1,])*Grupy[3,])
-   koszt = C - (EX)/(2*k)
-   return(koszt)
+strategia_optymalna_inicjuj_0 = function(Gr, k) {
+   #koszt oplaca sie : 0, a1, a2, a3, a4, a5 - jeden z tych
+   #ax to koszty graniczne dla każdej grupy
+   zysk_max = 0
+   koszt = 0   
+   pr = Gr[2, ]
+   zysk_max = sum(C*(Gr[2,])) #dla 0
+   
+   zysk = 0
+   aktkoszt = 0
+   for (i in 1:k) {
+      for (j in 1:k) {
+         pr[j] = if(Gr[1, i] < Gr[1,j])(Gr[2,j])else(Gr[3,j])
+      }
+      zysk = sum((C - Gr[1, i])*pr)
+      if(zysk > zysk_max) {
+         zysk_max = zysk
+         koszt = Gr[1,i]
+      }
+   }
 }
 strategia_optymalna_inicjuj_1  = function(M) {
-   #nic nie robię#
+   jak_duzo = M
 }
 strategia_optymalna_koszt  = function() {
-   return(sample(0:10, 1))
+   return(koszt)
 }
 strategia_optymalna_koniec_dnia  = function(kupil) {
-   #nic nie robię#   
+   #nic nie robię#
 }
 strategia_optymalna_wynik = function() {
-   return (1:5)
+   return (1:jak_duzo)
 }
 strategia_optymalna = c(strategia_optymalna_inicjuj_1, strategia_optymalna_koszt,
                         strategia_optymalna_koniec_dnia, strategia_optymalna_wynik)

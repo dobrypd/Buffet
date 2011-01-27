@@ -6,12 +6,19 @@
 #moze generowanie grup z jakims parametrem jeszcze - np
 # function(k, h) gdzie h to parametr grupy
 generuj_grupy =  function(k) {
-   g1 = c(2, 0.5, 0.5)
-   g2 = c(4, 0.2, 0.6)
-   g3 = c(6, 0.3, 0.7)
-   g4 = c(7, 0.2, 0.8)
-   g5 = c(8, 0.4, 1)
-   
+   #g1 = c(2, 0.5, 0.5)
+   #g1 = c(6, 0.5, 1)
+   #g2 = c(4, 0.2, 0.6)
+   #g3 = c(6, 0.3, 0.7)
+   #g4 = c(7, 0.2, 0.8)
+   #g5 = c(3, 0.1, 0.8)
+
+g1 = c(1, 0.5, 0.6)
+g2 = c(2, 0.5, 0.6)
+g3 = c(3, 0.5, 0.6)
+g4 = c(4, 0.5, 0.6)
+g5 = c(5, 0.5, 0.6)
+
    Gr = data.frame(g1, g2, g3, g4, g5)
    return(Gr)
 }
@@ -100,17 +107,22 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    names(ilu_kupilo) = nazwy_str
    names(zarobek) = nazwy_str
    
+   print("Rozpoczynam symulację strategii - losowa")
    losowo      = metoda_symulacji(M, k, Grupy, strategia_losowa)
-   strategia_optymalna_inicjuj_0(Grupy)
+   print("Rozpoczynam symulację strategii - optymalna")
+   strategia_optymalna_inicjuj_0(Grupy, k)
    optymalnie  = metoda_symulacji(M, k, Grupy, strategia_optymalna)
-   
-   #jpeg('wykres.jpg')
-   l = factor(losowo[,1])
-   o = factor(optymalnie[,1])
-   
-   plot(x ,
-        ylab = "Osób kupiło danego dnia", xlab = "Numer dnia", 
-        col="red", pch=16)
-   #plot(returned[,1] , ylab = "Osób kupiło danego dnia", xlab = "Numer dnia", col ="gray")
-   #dev.off()
+   print("Rozpoczynam symulację strategii testowanej")
+   png("opt.png")   
+   plot((C - optymalnie[,k + 2]) * optymalnie[,1] ,
+        ylab = "Zysk", xlab = "Numer dnia", 
+        col="red", pch=16,
+        main="Strategia optymalna")
+   dev.off()
+   png("rand.png")
+   plot((C - losowo[,k + 2]) * losowo[,1] ,
+        ylab = "Zysk", xlab = "Numer dnia", 
+        col="red", pch=16,
+        main="Strategia losowa")
+   dev.off()
 }
