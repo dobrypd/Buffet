@@ -4,11 +4,11 @@
 
 #TODO: generowanie grup
 generuj_grupy =  function(k) {
-   g1 = c(4, 0.1, 0.5)
-   g2 = c(6, 0.5, 0.9)
-   g3 = c(8, 0.4, 0.6)
-   g4 = c(9, 0.1, 0.9)
-   g5 = c(4, 0.4, 0.9)
+   g1 = c(2, 0.5, 0.5)
+   g2 = c(4, 0.2, 0.6)
+   g3 = c(6, 0.3, 0.7)
+   g4 = c(7, 0.2, 0.8)
+   g5 = c(8, 0.4, 1)
    
    Gr = data.frame(g1, g2, g3, g4, g5)
    return(Gr)
@@ -27,6 +27,9 @@ symulacja = function(M, k, Grupy, strategia) {
    koszt = rep(0, M)                         #koszt danego dnia
    
    for(i in 1:M) {   #ity dzień     
+      if (i %% (M/10) == 0) {
+         print(paste("Symulacja: ", (i/M) * 100 , "% "))
+      }
       koszt[i] = strategia[[2]]()            #jaki koszt na dziś, może nowy
       
       klient_z_grupy = sample(rep(1:k, N/k))    #przychodzący klienci
@@ -51,7 +54,7 @@ symulacja = function(M, k, Grupy, strategia) {
       strategia[[3]](kupil)
    }
 
-   return(c(ilu_kupilo, ilu_kupilo_grupa, koszt, strategia[[4]]()))
+   return(data.frame(ilu_kupilo, ilu_kupilo_grupa, koszt, strategia[[4]]()))
 }
 
 
@@ -64,7 +67,8 @@ wizualizacja_grup = function(k, Gr) {
       barplot(c(Gr[2, i], Gr[3,i]), 
               main = paste("Pr. grupa: ",i, ", cena graniczna: ", Gr[1, i]), 
               xlab = "przy niższej cenie / przy wyższej", 
-              ylab = "Prawdopodobieństwo", col = c("red", "blue"));
+              ylab = "Prawdopodobieństwo", col = 
+              c("red", "blue"));
    }
    hist(c(Gr[1,1],Gr[1,2],Gr[1,3],Gr[1,4],Gr[1,5]), 
         main="Częstość występowania ceny granicznej", 
@@ -76,52 +80,33 @@ wizualizacja_grup = function(k, Gr) {
 
 #test porównujący strategię do losowej i optymalnej
 #wynik - wykresy
-test_LO = function(M, k, Grupy, strategia.podajkoszt, strategia.pobierz_raport_dnia, strategia.wynik_koncowy) {
+test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    source("./dane.r")            #stałe
    source("./strategie.r")       #strategie
    wizualizacja_grup(k, Grupy)   #grafy pokazujące dane grupy
    
    nazwy_str = c("Podana strategia", "Optymalna", "Losowa")       #nazwy
    akt_koszt = data.frame(0, 0, 0)                                #koszt obiadu tego dnia
-   ile_kupilo_grupa = data.frame(rep(0, k), rep(0, k), rep(0, k)) #ile kupilo z danej grupy
-   ile_kupilo = data.frame(0, 0, 0)                               #ilu kupilo w danej strategii
+   ilu_kupilo_grupa = data.frame(rep(0, k), rep(0, k),
+                                 rep(0, k), rep(0, k),
+                                 rep(0, k))                       #ile kupilo z danej grupy
+   ilu_kupilo = data.frame(0, 0, 0)                               #ilu kupilo w danej strategii
+   zarobek = data.frame(rep(0, M), rep(0, M), rep(0, M))          #zarobek w dniu i = zarobek[i]
+   
    names(akt_koszt) = nazwy_str
+   names(ilu_kupilo_grupa) = nazwy_str
+   names(ilu_kupilo) = nazwy_str
+   names(zarobek) = nazwy_str
    
+   returned = metoda_symulacji(M, k, Grupy, strategia_losowa);
+   returned2 = metoda_symulacji(M, k, Grupy, strategia_losowa);
+   #returned3 = metoda_symulacji(M, k, Grupy, strategia_losowa);
+   #jpeg('wykres.jpg')
+   x = factor(returned[,1])
    
-   zarobek = rep(0, M)           #zarobek w dniu i = zarobek[i]
-   
-   #symulacja
-   for(i in 1:M) {   #ity dzień     
-      akt_koszt = strategia.podajkoszt()        #jaki koszt na dziś, może nowy
-      akt_koszt_losowy = sample(1:10, 1)         #a gdyby koszt był losowy?
-      #akt_koszt_optymalny = wartosc_oczekiwana()#a tutaj koszt jest optymalny, dla porównania tej strategii
-      klient_z_grupy = sample(rep(1:k, N/k))    #klienci z danej grupy przychodzą losowo
-      
-      ile_kupilo_grupa = date.frame(1:k, 1:k, 1:k)       #ile kupilo z danej grupy
-      
-      ile_kupilo_strategia = 0                  #ile kupilo w tej strategii
-      ile_kupilo_optymalna = 0                  #ile kupilo w optymalnej str
-      ile_kupilo_losowa = 0                     #ile kupilo w str - losuj koszt z równym pr
-      kupil = rep(FALSE, N)                     #informacja o tych którzy kupili (przekazywana pod koniec dnia)
-   kupil_optymalna = rep(FALSE, N)           #jw dla strategii optymalnej
-   kupil_losowa = rep(FALSE, N)              #jw dla strategii - losuj koszt z równym pr
-   
-   pr_kupi = rep(0, k)                       #licze sobie aktualne prawdopodobienstwo dla kazdej grupy
-   for(ik in 1:k) {
-      if(akt_koszt < Grupy[1, ik]) {
-         pr_kupi[ik] = Grupy[2, ik]
-      } else {
-         pr_kupi[ik] = Grupy[3, ik]
-      }
-   }
-   for(j in 1:N) {   #jty klient itego dnia
-      kupil[j] = sample(c(TRUE, FALSE), 1, prob = c(pr_kupi[klient_z_grupy[j]], 1-pr_kupi[klient_z_grupy[j]]) )
-      kupil_optymalna[j] = sample(c(TRUE, FALSE), 1, prob = c(pr_kupi_[klient_z_grupy[j]], 1-pr_kupi[klient_z_grupy[j]]) )
-   }
-   strategia.pobiez_raport_dnia(kupil)
-   }
-   
-   strategia.wynik_koncowy();
-   
-   #raport - wykresy
+   plot(returned[,1] ,
+        ylab = "Osób kupiło danego dnia", xlab = "Numer dnia", 
+        col="red", pch=16)
+   #plot(returned[,1] , ylab = "Osób kupiło danego dnia", xlab = "Numer dnia", col ="gray")
+   #dev.off()
 }
