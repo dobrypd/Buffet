@@ -6,7 +6,6 @@
 #moze generowanie grup z jakims parametrem jeszcze - np
 # function(k, h) gdzie h to parametr grupy
 generuj_grupy =  function(k) {
-   #g1 = c(2, 0.5, 0.5)
    g1 = c(6, 0.5, 1)
    g2 = c(4, 0.2, 0.6)
    g3 = c(6, 0.3, 0.7)
@@ -23,11 +22,13 @@ generuj_grupy =  function(k) {
 symulacja = function(M, k, Grupy, strategia) {
    source("./dane.r")
    strategia[[1]](M)                         #inicjuj
+   
    ilu_kupilo = rep(0, M)                    #ile sprzedanych obiadów każdego dnia
    ilu_kupilo_grupa = data.frame(
       rep(0, M), rep(0, M), rep(0, M),
       rep(0, M), rep(0, M))                  #jw dla kazdej grupy
    koszt = rep(0, M)                         #koszt danego dnia
+   pr_kupi = 0
    
    for(i in 1:M) {   #ity dzień     
       if (i %% (M/10) == 0) {
@@ -35,26 +36,15 @@ symulacja = function(M, k, Grupy, strategia) {
       }
       koszt[i] = strategia[[2]]()            #jaki koszt na dziś, może nowy
       
-      klient_z_grupy = sample(rep(1:k, N/k))    #przychodzący klienci
-      
-      kupil = rep(FALSE, N)                     #informacja o tych którzy kupili (przekazywana pod koniec dnia)
-      pr_kupi = rep(0, k)                       #licze sobie aktualne prawdopodobienstwo dla kazdej grupy
       for(g in 1:k) {
-         if(koszt[i] < Grupy[1, g]) {
-            pr_kupi[g] = Grupy[2, g]
-         } else {
-            pr_kupi[g] = Grupy[3, g]
-         }
+         pr_kupi = ifelse(koszt[i] < Grupy[1, g], Grupy[2, g], Grupy[3, g])
+         kupil = sample(c(TRUE, FALSE), N/k, replace = TRUE, prob = c(pr_kupi, 1-pr_kupi))
+         suma = sum(kupil)
+         ilu_kupilo[i] = ilu_kupilo[i] + suma
+         ilu_kupilo_grupa[i, g] = ilu_kupilo[i] + suma
       }
-      
-      for(j in 1:N) {   #jty klient itego dnia
-         if (sample(c(TRUE, FALSE), 1, prob = c(pr_kupi[klient_z_grupy[j]], 1-pr_kupi[klient_z_grupy[j]])) ) {
-            kupil[j] = TRUE
-            ilu_kupilo[i] = ilu_kupilo[i] + 1
-            ilu_kupilo_grupa[i,klient_z_grupy[j]] = ilu_kupilo_grupa[i,klient_z_grupy[j]] + 1
-         }
-      }
-      strategia[[3]](kupil)
+
+      strategia[[3]](ilu_kupilo[i])
    }
 
    return(data.frame(ilu_kupilo, ilu_kupilo_grupa, koszt, strategia[[4]]()))
@@ -107,16 +97,10 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    strategia_optymalna_inicjuj_0(Grupy, k)
    optymalnie  = metoda_symulacji(M, k, Grupy, strategia_optymalna)
    print("Rozpoczynam symulację strategii testowanej")
-   png("opt.png")   
-   plot((C - optymalnie[,k + 2]) * optymalnie[,1] ,
+   
+   #chcę wszystko na 1 wykresie
+   plot(((C - optymalnie[,k + 2]) * optymalnie[,1] ) ,# ||  ((C - losowo[,k + 2]) * losowo[,1] ),
         ylab = "Zysk", xlab = "Numer dnia", 
-        col="red", pch=16,
+        col="red", pch=1,
         main="Strategia optymalna")
-   dev.off()
-   png("rand.png")
-   plot((C - losowo[,k + 2]) * losowo[,1] ,
-        ylab = "Zysk", xlab = "Numer dnia", 
-        col="red", pch=16,
-        main="Strategia losowa")
-   dev.off()
 }

@@ -7,8 +7,7 @@
 #numer -  nazwa                           (parametry)                         [co zwraca]
 #  1   - inicjowanie strategii            (M - liczbą dni)                    [nic]
 #  2   - podaje nowy koszt na dany dzień  (brak)                              [koszt - liczba]
-#  3   - pobiera raport dnia              (wektor wartości logicznych,        [nic]
-#                                           czy ity kupił obiad)
+#  3   - pobiera raport dnia              (ile - ilość kupionych obiadów)     [nic]
 #  4   - wystawia wynik pracy             (brak)                              [wektor długości ilości dni c()]
 
 # #####strategia losowa##### #
@@ -18,7 +17,7 @@ strategia_losowa_inicjuj  = function(M) {
 strategia_losowa_koszt  = function() {
    return(sample(0:10, 1))
 }
-strategia_losowa_koniec_dnia  = function(kupil) {
+strategia_losowa_koniec_dnia  = function(kupilo) {
    #nic nie robię#
 }
 strategia_losowa_wynik = function() {
@@ -30,7 +29,7 @@ strategia_losowa = c(strategia_losowa_inicjuj, strategia_losowa_koszt,
 
 # #####strategia optymalna##### #
 koszt = 0
-jak_duzo = MAXN
+jak_duzo = 0
 strategia_optymalna_inicjuj_0 = function(Gr, k) {
    #koszt oplaca sie : 0, a1, a2, a3, a4, a5 - jeden z tych
    #ax to koszty graniczne dla każdej grupy
@@ -58,7 +57,7 @@ strategia_optymalna_inicjuj_1  = function(M) {
 strategia_optymalna_koszt  = function() {
    return(koszt)
 }
-strategia_optymalna_koniec_dnia  = function(kupil) {
+strategia_optymalna_koniec_dnia  = function(kupilo) {
    #nic nie robię#
 }
 strategia_optymalna_wynik = function() {
