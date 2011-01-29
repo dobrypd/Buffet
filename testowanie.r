@@ -6,11 +6,11 @@
 #moze generowanie grup z jakims parametrem jeszcze - np
 # function(k, h) gdzie h to parametr grupy
 generuj_grupy =  function(k) {
-   g1 = c(6, 0.5, 1)
-   g2 = c(4, 0.2, 0.6)
-   g3 = c(6, 0.3, 0.7)
-   g4 = c(7, 0.2, 0.8)
-   g5 = c(3, 0.1, 0.8)
+   g1 = c(5, 0.2, 1)
+   g2 = c(5, 0.2, 1)
+   g3 = c(5, 0.2, 1)
+   g4 = c(4, 0.2, 0.8)
+   g5 = c(2, 0.1, 0.8)
 
    Gr = data.frame(g1, g2, g3, g4, g5)
    return(Gr)
@@ -57,7 +57,7 @@ wizualizacja_grup = function(k, Gr) {
    colors = rainbow(k)
    par(mfrow=c(3,2))
    for(i in 1:k){
-      barplot(c(Gr[2, i], Gr[3,i]), 
+      barplot(c(Gr[2, i], Gr[3, i]), 
               main = paste("Pr. grupa: ",i, ", cena graniczna: ", Gr[1, i]), 
               xlab = "przy niższej cenie / przy wyższej", 
               ylab = "Prawdopodobieństwo", col = 
@@ -78,29 +78,50 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    source("./strategie.r")       #strategie
    wizualizacja_grup(k, Grupy)   #grafy pokazujące dane grupy
    
-   nazwy_str = c("Podana strategia", "Optymalna", "Losowa")       #nazwy
-   akt_koszt = data.frame(0, 0, 0)                                #koszt obiadu tego dnia
-   ilu_kupilo_grupa = data.frame(rep(0, k), rep(0, k),
-                                 rep(0, k), rep(0, k),
-                                 rep(0, k))                       #ile kupilo z danej grupy
-   ilu_kupilo = data.frame(0, 0, 0)                               #ilu kupilo w danej strategii
-   zarobek = data.frame(rep(0, M), rep(0, M), rep(0, M))          #zarobek w dniu i = zarobek[i]
-   
-   names(akt_koszt) = nazwy_str
-   names(ilu_kupilo_grupa) = nazwy_str
-   names(ilu_kupilo) = nazwy_str
-   names(zarobek) = nazwy_str
-   
    print("Rozpoczynam symulację strategii - losowa")
    losowo      = metoda_symulacji(M, k, Grupy, strategia_losowa)
    print("Rozpoczynam symulację strategii - optymalna")
    strategia_optymalna_inicjuj_0(Grupy, k)
    optymalnie  = metoda_symulacji(M, k, Grupy, strategia_optymalna)
    print("Rozpoczynam symulację strategii testowanej")
+   testowanie  = metoda_symulacji(M, k, Grupy, strategia)
    
+   print("ZYSKI:")
+   print("Strategia optymalna")
+   opt_zysk = (C - optymalnie[,k + 2]) * optymalnie[,1]
+   print(summary(opt_zysk))
+   print(paste("Całkowity: ", sum((C - optymalnie[,k + 2]) * optymalnie[,1]), "zł"))
+   print("Strategia losowa")
+   los_zysk = (C - losowo[,k + 2]) * losowo[,1]
+   print(summary(los_zysk))
+   print(paste("Całkowity: ", sum((C - losowo[,k + 2]) * losowo[,1]), "zł"))
+   print("Strategia testowana")
+   test_zysk = (C - testowanie[,k + 2]) * testowanie[,1]
+   print(summary(test_zysk))
+   print(paste("Całkowity: ", sum((C - testowanie[,k + 2]) * testowanie[,1]), "zł"))
+   
+   wyniki = data.frame(rep(1:M, 3), c(opt_zysk, los_zysk, test_zysk), c(rep("Optymalna", M), rep("Losowa", M), rep("Testowana", M)))
+   names(wyniki) = c("Dzień", "Zysk", "Strategia")
    #chcę wszystko na 1 wykresie
-   plot(((C - optymalnie[,k + 2]) * optymalnie[,1] ) ,# ||  ((C - losowo[,k + 2]) * losowo[,1] ),
-        ylab = "Zysk", xlab = "Numer dnia", 
-        col="red", pch=1,
-        main="Strategia optymalna")
+   colors = c( col=rgb(200,0,0,50,maxColorValue=255), 
+               col=rgb(0,200,0,50,maxColorValue=255),
+               col=rgb(0,0,200,50,maxColorValue=255))
+   
+   plot(Zysk ~ Dzień, data=wyniki, col = 
+            ifelse(Strategia=="Optymalna", colors[1], ifelse(Strategia=="Losowa", colors[2], colors[3])), 
+            xlab="Dzień", ylab="Zysk", pch=16,
+            main="Zyski w danym dniu" )
+   #plot(xlab="Dzień", ylab="Zysk", pch=16,
+   #     main="Zyski w danym dniu" )
+   wyniki.spline.Opt <- with(subset(wyniki,Strategia=="Optymalna"),
+                            smooth.spline(Dzień, Zysk,df=12))
+   wyniki.spline.Los <- with(subset(wyniki,Strategia=="Losowa"), 
+                              smooth.spline(Dzień, Zysk, df=12))
+   wyniki.spline.Test <- with(subset(wyniki,Strategia=="Testowana"), 
+                             smooth.spline(Dzień, Zysk, df=12))
+   
+   lines(wyniki.spline.Opt, col="red")
+   lines(wyniki.spline.Los, col="green")
+   lines(wyniki.spline.Test, col="blue")
+   legend("bottomleft", legend=c("Optymalna", "Losowa", "Testowana"), col=c("red", "green", "blue"), lwd=2)
 }
