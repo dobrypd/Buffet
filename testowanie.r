@@ -54,8 +54,8 @@ symulacja = function(M, k, Grupy, strategia) {
 #wizualizacja powstałych grup
 wizualizacja_grup = function(k, Gr) {
    old.par = par(no.readonly = TRUE)
-   colors = rainbow(k)
    par(mfrow=c(3,2))
+   colors = rainbow(k)
    for(i in 1:k){
       barplot(c(Gr[2, i], Gr[3, i]), 
               main = paste("Pr. grupa: ",i, ", cena graniczna: ", Gr[1, i]), 
@@ -107,12 +107,13 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
                col=rgb(0,200,0,50,maxColorValue=255),
                col=rgb(0,0,200,50,maxColorValue=255))
    
+   #old.par = par(no.readonly = TRUE)
+   #par(mfrow=c(2,1))
+   
    plot(Zysk ~ Dzień, data=wyniki, col = 
             ifelse(Strategia=="Optymalna", colors[1], ifelse(Strategia=="Losowa", colors[2], colors[3])), 
             xlab="Dzień", ylab="Zysk", pch=16,
             main="Zyski w danym dniu" )
-   #plot(xlab="Dzień", ylab="Zysk", pch=16,
-   #     main="Zyski w danym dniu" )
    wyniki.spline.Opt <- with(subset(wyniki,Strategia=="Optymalna"),
                             smooth.spline(Dzień, Zysk,df=12))
    wyniki.spline.Los <- with(subset(wyniki,Strategia=="Losowa"), 
@@ -124,4 +125,12 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    lines(wyniki.spline.Los, col="green")
    lines(wyniki.spline.Test, col="blue")
    legend("bottomleft", legend=c("Optymalna", "Losowa", "Testowana"), col=c("red", "green", "blue"), lwd=2)
+   
+   #koszt
+   #x <- 1:M
+   #y <- optymalnie[x,k+2]
+   #plot(x, y, type="n", main="Kształtowanie się kosztu", xlab="Dzień", ylab="Koszt")
+   #lines(x, y)
+   
+   #par(old.par)
 }

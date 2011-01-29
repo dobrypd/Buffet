@@ -28,8 +28,6 @@ strategia_losowa = c(strategia_losowa_inicjuj, strategia_losowa_koszt,
 # #####koniec strategia losowa##### #
 
 # #####strategia optymalna##### #
-koszt = 0
-jak_duzo = 0
 strategia_optymalna_inicjuj_0 = function(Gr, k) {
    #koszt oplaca sie : 0, a1, a2, a3, a4, a5 - jeden z tych
    #ax to koszty graniczne dla każdej grupy
