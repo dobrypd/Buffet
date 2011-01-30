@@ -124,13 +124,13 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    lines(wyniki.spline.Opt, col="red")
    lines(wyniki.spline.Los, col="green")
    lines(wyniki.spline.Test, col="blue")
-   legend("bottomleft", legend=c("Optymalna", "Losowa", "Testowana"), col=c("red", "green", "blue"), lwd=2)
+   legend("bottomright", legend=c("Optymalna", "Losowa", "Testowana"), col=c("red", "green", "blue"), lwd=2)
    
    #koszt
    #x <- 1:M
    #y <- optymalnie[x,k+2]
    #plot(x, y, type="n", main="Kształtowanie się kosztu", xlab="Dzień", ylab="Koszt")
-   #lines(x, y)
+   #xlines(x, y)
    
    #par(old.par)
 }

@@ -64,3 +64,31 @@ strategia_optymalna_wynik = function() {
 strategia_optymalna = c(strategia_optymalna_inicjuj_1, strategia_optymalna_koszt,
                         strategia_optymalna_koniec_dnia, strategia_optymalna_wynik)
 # #####koniec strategia losowa##### #
+
+
+
+# #####STRATEGIE##### #
+# #####strategia hillclimbing##### #
+strategia_szukam_inicjuj  = function(M) {
+   jak_duzo = M
+   max_kupilo = 0
+   max_kupilo_dla = 0
+   krok = M/10
+   wyniki = c(M/10) #1/10 przeznaczam na wyszukiwanie
+   nowy_koszt = M/10
+   wykonano_krokow
+}
+strategia_szukam_koszt  = function() {
+   nowy_koszt = nowy_koszt + krok
+   wykonano_krokow = wykonano_krokow + 1
+   return(nowy_koszt)
+}
+strategia_szukam_koniec_dnia  = function(kupilo) {
+   wyniki[wykonano_krokow] = kupilo
+}
+strategia_szukam_wynik = function() {
+   return (1:5)
+}
+strategia_szukam = c(strategia_szukam_inicjuj, strategia_szukam_koszt,
+                     strategia_szukam_koniec_dnia, strategia_szukam_wynik)
+# #####koniec strategii hillclinbing##### #
