@@ -6,44 +6,14 @@
 #moze generowanie grup z jakims parametrem jeszcze - np
 # function(k, h) gdzie h to parametr grupy
 generuj_grupy =  function(k) {
-#    g1 = c(5, 0.2, 1)
-#    g2 = c(5, 0.2, 1)
-#    g3 = c(5, 0.2, 1)
-#    g4 = c(4, 0.2, 0.8)
-#    g5 = c(2, 0.1, 0.8)
-#    
-#    g1 = c(8.001, 0, 1)
-#    g2 = c(8.001, 0, 1)
-#    g3 = c(8.0015, 0.1, 0.5)
-#    g4 = c(8.002, 0.1, 0.5)
-#    g5 = c(8.002, 0.1, 0.5)
-# 
-#    g1 = c(1, 0.01, 0.6)
-#    g2 = c(2, 0.01, 0.7)
-#    g3= c(1, 0.03, 0.7)
-#    g4 = c(1.5, 0.01, 0.8)
-#    g5 = c(1.5, 0.05, 0.8)
-
-#    g1 = c(9.5, 0.001, 0.99)
-#    g2 = c(9.5, 0.001, 0.991)
-#    g3 = c(9.59, 0.002, 0.93)
-#    g4 = c(9.555, 0.006, 0.899)
-#    g5 = c(9.535, 0.009, 0.999)
-
-# g1 = c(5.5, 0.001, 0.99)
-# g2 = c(5.5, 0.001, 0.991)
-# g3 = c(5.59, 0.002, 0.93)
-# g4 = c(5.555, 0.006, 0.899)
-# g5 = c(5.535, 0.009, 0.999)
-
-
-g1 = c(3, 0.001, 0.8)
-g2 = c(4.5, 0.2, 0.7)
-g3 = c(5.5, 0.35, 0.77)
-g4 = c(6.98, 0.2, 0.5)
-g5 = c(8.33, 0.5, 0.6)
-
-   Gr = data.frame(g1, g2, g3, g4, g5)
+   Gr = data.frame(c(0,0,0), c(0,0,0), c(0,0,0), c(0,0,0), c(0,0,0))
+   rozbicie = 1000
+   for(i in 1:k) {
+      #Gr[123, 12345]
+      Gr[1, i] = sample(seq(0, C, by=(C/rozbicie)), 1)
+      Gr[2, i] = sample(seq(0, 0.5, by=(0.5/rozbicie)), 1)
+      Gr[3, i] = sample(seq(0.5, 1, by=(0.5/rozbicie)), 1)
+   }
    return(Gr)
 }
 
@@ -62,9 +32,9 @@ symulacja = function(M, k, Grupy, strategia) {
    pr_kupi = 0
    
    for(i in 1:M) {   #ity dzień     
-      if (i %% (M/10) == 0) {
-         print(paste("Symulacja: ", (i/M) * 100 , "%"))
-      }
+      #if (i %% (M/10) == 0) {
+      #   print(paste("Symulacja: ", (i/M) * 100 , "%"))
+      #}
       koszt[i] = strategia[[2]]()            #jaki koszt na dziś, może nowy
       
       for(g in 1:k) {
@@ -175,7 +145,7 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
 test_zysk = function(M, k, Grupy, strategia, metoda_symulacji) {
    source("./dane.r")            #stałe
    source("./strategie.r")       #strategie
-   print("Rozpoczynam symulację strategii testowanej")
+   #print("Rozpoczynam symulację strategii")
    wynik = metoda_symulacji(M, k, Grupy, strategia)
    zysk = (C - wynik[,k + 2]) * wynik[,1]
    
@@ -183,15 +153,60 @@ test_zysk = function(M, k, Grupy, strategia, metoda_symulacji) {
 }
 
 #dla MLE
-testy_szukaj_najgorszych_MKGrupy = function(strategia, metoda_symulacji) {
+testy_szukaj_najgorszych_M = function(Grupy, k, strategia, metoda_symulacji) {
+   print("SZUKAM NAJGORSZYCH WYNIKOW DLA ROZNYCH M, K i ROZNYCH GRUP")
+   source("./dane.r")            #stałe
+   source("./strategie.r")       #strategie
    najgorsze_M = 0
-   najgorsze_Gr = generuj_grupy(5)
+   najgorszy_zysk = C * N        #DZIENNY!
+   aktualny_zysk = 0
    #mam malo dni!
-   for(i in 1:100) {
-      
+   print("Dla malych M")
+   for(i in 1:20) {
+      gr = generuj_grupy(k)
+      aktualny_zysk = test_zysk(i, k, gr, strategia, metoda_symulacji) / i
+      if (aktualny_zysk < najgorszy_zysk) {
+         najgorszy_zysk = aktualny_zysk
+         najgorsze_M = i
+      }
+      print(paste("[M=", i, "]:: wynik= ", aktualny_zysk))
    }
    #zobaczmy w wiekszym zakresie
-   for(i in 1:(MAXM / 10)){
+   print("Dla wiekszych M")
+   for(i in seq(20, MAXM, by=50)){
+      print(paste("M = ", i))
+      gr = generuj_grupy(k)
+      aktualny_zysk = test_zysk(i, k, gr, strategia, metoda_symulacji) / i
+      if (aktualny_zysk < najgorszy_zysk) {
+         najgorszy_zysk = aktualny_zysk
+         najgorsze_M = i
+      }
+      print(paste("[M=", i, "]:: wynik= ", aktualny_zysk))
+   }
+   
+   return (c(najgorsze_M, najgorszy_zysk))
+}
+
+testy_szukaj_najgorszych_grup = function(strategia, metoda_symulacji) {
+   najgorszy_zysk_gr = C * N  #najgorszy osiagniety zysk
+   najgorsza_grupa = 0        #grupa dla jakiej ten zysk osiagnieto
+   najgorsze_M = 0            #najgorsze M dla jakiego ten zysk osiagnieto
+   
+   for(i in 1:50) {
+      print(paste("SPRAWDZAM KOLEJNA GRUPE nr:", i))
+      k = sample(1:5, 1)
+      gr = generuj_grupy(k)
+      testy_szukaj_najgorszych_M(gr, k, strategia, metoda_symulacji)
       
+      #sprawdz optymalny zysk dzienny dla tej grupy
+      strategia_optymalna_inicjuj_0(gr, k)
+      optymalny = strategia_optymalna_koszt()
+      pr = c(0, 0, 0, 0, 0)
+      for (j in 1:k) {
+         pr[j] = if(optymalny < gr[1,j])(gr[2,j])else(gr[3,j])
+      }
+      zysk_optymalny = sum((C - optymalny)*pr) / k
+      
+      print(paste("::{i=", i, "}:: najgorszy zysk= ", najgorszy_zysk, ", optymalny= ", zysk_optymalny * N))
    }
 }

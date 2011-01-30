@@ -13,6 +13,7 @@
 # #####strategia losowa##### #
 strategia_losowa_inicjuj  = function(M) {
    init()
+   jak_duzo <<- M
 }
 strategia_losowa_koszt  = function() {
    return(sample(0:10, 1))
@@ -21,7 +22,7 @@ strategia_losowa_koniec_dnia  = function(kupilo) {
    #nic nie robię#
 }
 strategia_losowa_wynik = function() {
-   return (1:5)
+   return (1:jak_duzo)
 }
 strategia_losowa = c(strategia_losowa_inicjuj, strategia_losowa_koszt,
                      strategia_losowa_koniec_dnia, strategia_losowa_wynik)
@@ -50,6 +51,9 @@ strategia_optymalna_inicjuj_0 = function(Gr, k) {
 }
 strategia_optymalna_inicjuj_1  = function(M) {
    jak_duzo <<- M
+   if (jak_duzo < 10) { #na razie dla malych olewczo
+      strategia_optymalna <<- strategia_losowa
+   }
 }
 strategia_optymalna_koszt  = function() {
    return(koszt)
@@ -69,7 +73,7 @@ strategia_optymalna = c(strategia_optymalna_inicjuj_1, strategia_optymalna_koszt
 # #####STRATEGIE##### #
 # #####strategia szukajaca##### #
 strategia_szukam_inicjuj  = function(M) {
-   init();
+   init()
    jak_duzo <<- M
    koszt <<- 0
    podzial_na = 10
@@ -96,7 +100,7 @@ strategia_szukam_koniec_dnia  = function(kupilo) {
   }
 }
 strategia_szukam_wynik = function() {
-   return (1:5)
+   return (1:jak_duzo)
 }
 strategia_szukam = c(strategia_szukam_inicjuj, strategia_szukam_koszt,
                      strategia_szukam_koniec_dnia, strategia_szukam_wynik)
