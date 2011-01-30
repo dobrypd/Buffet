@@ -12,7 +12,7 @@
 
 # #####strategia losowa##### #
 strategia_losowa_inicjuj  = function(M) {
-   #nic nie robię#
+   init()
 }
 strategia_losowa_koszt  = function() {
    return(sample(0:10, 1))
@@ -26,13 +26,12 @@ strategia_losowa_wynik = function() {
 strategia_losowa = c(strategia_losowa_inicjuj, strategia_losowa_koszt,
                      strategia_losowa_koniec_dnia, strategia_losowa_wynik)
 # #####koniec strategia losowa##### #
-
 # #####strategia optymalna##### #
 strategia_optymalna_inicjuj_0 = function(Gr, k) {
    #koszt oplaca sie : 0, a1, a2, a3, a4, a5 - jeden z tych
    #ax to koszty graniczne dla każdej grupy
+   init()
    zysk_max = 0
-   koszt = 0   
    pr = Gr[2, ]
    zysk_max = sum(C*(Gr[2,])) #dla 0
    
@@ -45,12 +44,12 @@ strategia_optymalna_inicjuj_0 = function(Gr, k) {
       zysk = sum((C - Gr[1, i])*pr)
       if(zysk > zysk_max) {
          zysk_max = zysk
-         koszt = Gr[1,i]
+         koszt <<- Gr[1,i]
       }
    }
 }
 strategia_optymalna_inicjuj_1  = function(M) {
-   jak_duzo = M
+   jak_duzo <<- M
 }
 strategia_optymalna_koszt  = function() {
    return(koszt)
@@ -68,27 +67,37 @@ strategia_optymalna = c(strategia_optymalna_inicjuj_1, strategia_optymalna_koszt
 
 
 # #####STRATEGIE##### #
-# #####strategia hillclimbing##### #
+# #####strategia szukajaca##### #
 strategia_szukam_inicjuj  = function(M) {
-   jak_duzo = M
-   max_kupilo = 0
-   max_kupilo_dla = 0
-   krok = M/10
-   wyniki = c(M/10) #1/10 przeznaczam na wyszukiwanie
-   nowy_koszt = M/10
-   wykonano_krokow
+   init();
+   jak_duzo <<- M
+   koszt <<- 0
+   podzial_na = (M/10) #jedna dziesiata M
+   str_global_info <<- c(0, 0, C / podzial_na, 0, C-1, podzial_na)
+   names(str_global_info) = c("max_zysk", "max_zysk_dla", "krok", "lewy", "prawy", "podzial_na")
 }
 strategia_szukam_koszt  = function() {
-   nowy_koszt = nowy_koszt + krok
-   wykonano_krokow = wykonano_krokow + 1
-   return(nowy_koszt)
+   return(koszt)
 }
 strategia_szukam_koniec_dnia  = function(kupilo) {
-   wyniki[wykonano_krokow] = kupilo
+  if (kupilo * (C-koszt) > str_global_info[1]){
+     str_global_info[1] <<- kupilo * (C-koszt)
+     str_global_info[2] <<- koszt
+  }
+  koszt <<- koszt + str_global_info[3]
+  if (koszt > str_global_info[5]) {
+     #zmniejszam przedzial
+     #tu nie w przedziale tylko troche wiecej
+     str_global_info[4] <<- max(str_global_info[2] - str_global_info[3], 0)
+     str_global_info[5] <<- min(str_global_info[2] + str_global_info[3], jak_duzo)
+     koszt <<- str_global_info[4]
+     str_global_info[3] <<- str_global_info[3]*2 / str_global_info[6]
+     
+  }
 }
 strategia_szukam_wynik = function() {
    return (1:5)
 }
 strategia_szukam = c(strategia_szukam_inicjuj, strategia_szukam_koszt,
                      strategia_szukam_koniec_dnia, strategia_szukam_wynik)
-# #####koniec strategii hillclinbing##### #
+# #####koniec strategii szukajacej##### #

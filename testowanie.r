@@ -107,8 +107,8 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
                col=rgb(0,200,0,50,maxColorValue=255),
                col=rgb(0,0,200,50,maxColorValue=255))
    
-   #old.par = par(no.readonly = TRUE)
-   #par(mfrow=c(2,1))
+   old.par = par(no.readonly = TRUE)
+   par(mfrow=c(2,1))
    
    plot(Zysk ~ Dzień, data=wyniki, col = 
             ifelse(Strategia=="Optymalna", colors[1], ifelse(Strategia=="Losowa", colors[2], colors[3])), 
@@ -117,9 +117,9 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    wyniki.spline.Opt <- with(subset(wyniki,Strategia=="Optymalna"),
                             smooth.spline(Dzień, Zysk,df=12))
    wyniki.spline.Los <- with(subset(wyniki,Strategia=="Losowa"), 
-                              smooth.spline(Dzień, Zysk, df=12))
+                            smooth.spline(Dzień, Zysk, df=12))
    wyniki.spline.Test <- with(subset(wyniki,Strategia=="Testowana"), 
-                             smooth.spline(Dzień, Zysk, df=12))
+                            smooth.spline(Dzień, Zysk, df=12))
    
    lines(wyniki.spline.Opt, col="red")
    lines(wyniki.spline.Los, col="green")
@@ -127,10 +127,10 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    legend("bottomright", legend=c("Optymalna", "Losowa", "Testowana"), col=c("red", "green", "blue"), lwd=2)
    
    #koszt
-   #x <- 1:M
-   #y <- optymalnie[x,k+2]
-   #plot(x, y, type="n", main="Kształtowanie się kosztu", xlab="Dzień", ylab="Koszt")
-   #xlines(x, y)
+   x <- 1:M
+   y <- testowanie[x,k+2]
+   plot(x, y, type="n", main="Kształtowanie się kosztu", xlab="Dzień", ylab="Koszt")
+   lines(x, y)
    
-   #par(old.par)
+   par(old.par)
 }
