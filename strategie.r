@@ -72,7 +72,7 @@ strategia_szukam_inicjuj  = function(M) {
    init();
    jak_duzo <<- M
    koszt <<- 0
-   podzial_na = 100
+   podzial_na = 10
    str_global_info <<- c(0, 0, C / podzial_na, 0, C, podzial_na)
    names(str_global_info) = c("max_zysk", "max_zysk_dla", "krok", "lewy", "prawy", "podzial_na")
 }

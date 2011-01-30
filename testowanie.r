@@ -20,15 +20,28 @@ generuj_grupy =  function(k) {
 # 
 #    g1 = c(1, 0.01, 0.6)
 #    g2 = c(2, 0.01, 0.7)
-#    g3 = c(1, 0.03, 0.7)
+#    g3= c(1, 0.03, 0.7)
 #    g4 = c(1.5, 0.01, 0.8)
 #    g5 = c(1.5, 0.05, 0.8)
 
-   g1 = c(9.5, 0.001, 0.99)
-   g2 = c(9.5, 0.001, 0.991)
-   g3 = c(9.59, 0.002, 0.93)
-   g4 = c(9.555, 0.006, 0.899)
-   g5 = c(9.535, 0.009, 0.999)
+#    g1 = c(9.5, 0.001, 0.99)
+#    g2 = c(9.5, 0.001, 0.991)
+#    g3 = c(9.59, 0.002, 0.93)
+#    g4 = c(9.555, 0.006, 0.899)
+#    g5 = c(9.535, 0.009, 0.999)
+
+# g1 = c(5.5, 0.001, 0.99)
+# g2 = c(5.5, 0.001, 0.991)
+# g3 = c(5.59, 0.002, 0.93)
+# g4 = c(5.555, 0.006, 0.899)
+# g5 = c(5.535, 0.009, 0.999)
+
+
+g1 = c(3, 0.001, 0.8)
+g2 = c(4.5, 0.2, 0.7)
+g3 = c(5.5, 0.35, 0.77)
+g4 = c(6.98, 0.2, 0.5)
+g5 = c(8.33, 0.5, 0.6)
 
    Gr = data.frame(g1, g2, g3, g4, g5)
    return(Gr)
@@ -84,7 +97,7 @@ wizualizacja_grup = function(k, Gr) {
    hist(c(Gr[1,1],Gr[1,2],Gr[1,3],Gr[1,4],Gr[1,5]), 
         main="Częstość występowania ceny granicznej", 
         xlab="Cena", ylab="Częstość", 
-        breaks=5, col=colors)
+        breaks=10, col=colors)
    par(old.par)
 }
 
@@ -125,13 +138,13 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
                col=rgb(0,200,0,50,maxColorValue=255),
                col=rgb(0,0,200,50,maxColorValue=255))
    
-   old.par = par(no.readonly = TRUE)
-   par(mfrow=c(2,1))
-   
+   #old.par = par(no.readonly = TRUE)
+   #par(mfrow=c(2,1))
+   pdf("Zysk_strategii_porownanie.pdf")
    plot(Zysk ~ Dzień, data=wyniki, col = 
             ifelse(Strategia=="Optymalna", colors[1], ifelse(Strategia=="Losowa", colors[2], colors[3])), 
             xlab="Dzień", ylab="Zysk", pch=16,
-            main="Zyski w danym dniu" )
+            main="Zyski w danym dniu")
    wyniki.spline.Opt <- with(subset(wyniki,Strategia=="Optymalna"),
                             smooth.spline(Dzień, Zysk,df=12))
    wyniki.spline.Los <- with(subset(wyniki,Strategia=="Losowa"), 
@@ -143,12 +156,42 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    lines(wyniki.spline.Los, col="green")
    lines(wyniki.spline.Test, col="blue")
    legend("bottomright", legend=c("Optymalna", "Losowa", "Testowana"), col=c("red", "green", "blue"), lwd=2)
-   
+   dev.off()
+   pdf("Ksztaltowanie_sie_kosztu.pdf")
    #koszt
    x <- 1:M
    y <- testowanie[x,k+2]
+   z <- optymalnie[x,k+2]
    plot(x, y, type="n", main="Kształtowanie się kosztu", xlab="Dzień", ylab="Koszt")
-   lines(x, y)
+   lines(x, y, col = "blue")
+   lines(x, z, col = "red")
+   legend("bottomright", legend=c("Str. optymalna", "Str. testowana"), col=c("red", "blue"), lwd=2)
+   dev.off()
    
-   par(old.par)
+   #par(old.par)
+}
+
+#do zbadania fajnosci strategii interesuje mnie zysk
+test_zysk = function(M, k, Grupy, strategia, metoda_symulacji) {
+   source("./dane.r")            #stałe
+   source("./strategie.r")       #strategie
+   print("Rozpoczynam symulację strategii testowanej")
+   wynik = metoda_symulacji(M, k, Grupy, strategia)
+   zysk = (C - wynik[,k + 2]) * wynik[,1]
+   
+   return(sum(zysk))
+}
+
+#dla MLE
+testy_szukaj_najgorszych_MKGrupy = function(strategia, metoda_symulacji) {
+   najgorsze_M = 0
+   najgorsze_Gr = generuj_grupy(5)
+   #mam malo dni!
+   for(i in 1:100) {
+      
+   }
+   #zobaczmy w wiekszym zakresie
+   for(i in 1:(MAXM / 10)){
+      
+   }
 }

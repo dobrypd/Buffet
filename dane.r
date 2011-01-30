@@ -9,7 +9,7 @@ C = 10
 N = 240
 
 #maksymalna liczba dni
-MAXN = 1000
+MAXM = 1000
 
 #maksymalna liczba grup
 MAXk = 5
