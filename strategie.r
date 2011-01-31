@@ -143,6 +143,7 @@ strategia_szukam_wyzej = c(strategia_szukam_wyzej_inicjuj, strategia_szukam_wyze
 
 
 # #####strategia ile\_gdzie\_lepiej##### #
+#nieopisana w raporcie poniewaz jest slaba
 strategia_ide_gdzie_lepiej_inicjuj  = function(M) {
    init()
    jak_duzo <<- M

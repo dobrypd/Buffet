@@ -14,7 +14,6 @@
 \begin{document}
 \maketitle
 \tableofcontents
-\section{Model}
 \section{O testowaniu}
 \subsection{Założenia}
 Testowanie strategii w moim projekcie odbywa się poprzez wielokrotne symulowanie kupowania
@@ -27,7 +26,7 @@ do bufetu i kupuje, bądź też nie, obiad. Każdego dnia pyta się strategii o 
 strategii ilość kupionych obiadów.
 \subsection{Konkretna symulacja - testowanie}
 Testowanie strategii na jednej, konkretnej symulacji. Polega na porównaniu działania strategii do strategii optymalnej
-i losowaj, gdzie optymalna (opisana później) stanowi pewne maksimum do którego chcę, aby dążyła (w przeciągu dni) testowana strategia
+i losowej, gdzie optymalna (opisana później) stanowi pewne maksimum do którego chcę, aby dążyła (w przeciągu dni) testowana strategia
 , a losowa minimum. 
 \paragraph{test\_LO = function(M, k, Grupy, strategia, metoda\_symulacji)::} Funkcja tworzy wykresy porównujące wybraną
 strategię do optymalnej i losowej. Dzięki temu można przeanalizować jak w czasie (dni) działa dana strategia. Wypisywane jest także
@@ -36,10 +35,10 @@ podsumowanie zysków każdego dnia, oraz zysk całkowity, uzyskany przez M dni.
 \paragraph{testy\_szukaj\_najgorszych\_M = function(Grupy, k, strategia, metoda\_symulacji, wypisuj = 0)::} Funkcja testuje strategię
 ze względu na radzenie sobie z różną ilością dni. Chodzi o to żeby strategia jak najszybciej umożliwiała dobrać
 najlepszy koszt.
-\paragraph{testy\_szukaj\_najgorszych = function(strategia, metoda\_symulacji, wypisuj = 0)::} Funkcja wykożystuje tę powyższą, ale teraz
+\paragraph{testy\_szukaj\_najgorszych = function(strategia, metoda\_symulacji, wypisuj = 0)::} Funkcja wykorzystuje tę powyższą, ale teraz
 wykonuje testy dla różnych grup klientów, które dobiera losowo. Dzięki niej można określić (i zmieniając parametry funkcji powyższej
 , czyli ilości dni jakie będą testowane) dla jakich ilości dostępnych dni, oraz dla jakich grup strategia najgorzej sobie radzi.
-\\ Dzięki tej funkcji (przy parametrze wypisuj > 0) można także uzystać informacje o atomowych testach występujących w tej grupie testów
+\\ Dzięki tej funkcji (przy parametrze wypisuj > 0) można także uzyskać informacje o atomowych testach występujących w tej grupie testów
 . Dzięki temu można przeanalizować daną strategię.
 
 \section{Strategie - opis, testy i problemy}
@@ -49,10 +48,10 @@ jeden parametr - koszt oczekiwany.
 
 \subsection{Strategie do testowania}
 \paragraph{Strategia - losuję koszt każdego dnia}
-Strategia losująca koszt słuzy do porównania. Koszt wybierany jest z rozkładem jednostajnym.
+Strategia losująca koszt służy do porównania. Koszt wybierany jest z rozkładem jednostajnym.
 \paragraph{Strategie - optymalna, znam grupy}
 Jeżeli grupy klientów są znane, to najbardziej opłacalną strategią jest wybranie jednego kosztu z \{0, $\alpha_1$, $\alpha_2$,
-   $\alpha_3$, $\alpha_4$, $\alpha_5$\} (opowiednio mniej jeżeli mniej grup). Dla każdego z tych kosztów liczę wartość oczekiwaną
+   $\alpha_3$, $\alpha_4$, $\alpha_5$\} (odpowiednio mniej jeżeli mniej grup). Dla każdego z tych kosztów liczę wartość oczekiwaną
    zysku. Wybieram ten koszt, dla którego ta jest największa.
 \subsection{Strategia 'szukam'}
 Strategia dzieli liczbę dni (M) na \textit{podzial\_na} równych części. Następnie (dla kolejnej części -dni) 
@@ -61,12 +60,12 @@ Następnie, po przejściu tej części dni, następuje zmiana przedziału na tak
 wynosi dwie długości przedziału (kosztu). Zawsze zawężam bardzo mocno przedział.
 \subsection{Analiza strategii 'szukam'}
 Strategia źle sobie radzi dla bardzo małych M, dlatego w przypadku wystąpienia M < 10 zostaje wywołana strategia losowa.
-\paragraph{Pięta ahillesowa strategii}
+\paragraph{Pięta achillesowa strategii}
 Koszt podawany przez strategię estymuje w okolicach dobrego, mniej więcej równo dowartościowuje i
 niedowartościowuje, jednak zysk w przypadku za dużego kosztu / za małego może się diametralnie zmieniać. Przez co,
-jeżeli maksiumum jakie wystąpiło będzie znacząco odbiegało od rzeczywistego to niedokładności będą większe. 
-A jeżeli koszt zostanie obliczony poniżej oczekiwanego może zdażyć się, że już nie wróci do poprawnego, przez co zysk będzie bardzo
-kiepski. Taką sytuację przedstawiją wykresy poniżej:
+jeżeli maksimum jakie wystąpiło będzie znacząco odbiegało od rzeczywistego to niedokładności będą większe. 
+A jeżeli koszt zostanie obliczony poniżej oczekiwanego może zdarzyć się, że już nie wróci do poprawnego, przez co zysk będzie bardzo
+kiepski. Taką sytuację przedstawiają wykresy poniżej:
 \begin{center}
 \includegraphics[scale=0.52]{wykresy/problemy/Zysk_strategii_porownanie_koszt_troche_za_maly.pdf}
 \end{center}
@@ -77,7 +76,7 @@ kiepski. Taką sytuację przedstawiją wykresy poniżej:
 Na tym przykładzie pokażę jak dobierałem parametry, tak samo dla innych strategii. Dla każdej
 nie chcę umieszczać w raporcie z powodu strasznego wsrostu objętości tego raportu.
 
-Przykład dla grup ponieżej, M=1000 i M=100:\\
+Przykład dla grup poniżej, M=1000 i M=100:\\
 c.0..0..0. c.0..0..0..1 c.0..0..0..2 c.0..0..0..3 c.0..0..0..4\\
 1 0.68496002    6.1336505    5.3973523    8.3772073    9.4554115\\
 2 0.07742254    0.4397591    0.4052306    0.3738446    0.4736273\\
@@ -265,7 +264,7 @@ Teraz nowy podział jest w stosunku 3:2 nad kosztem maksymalnym:pod kosztem maks
 Strategia składa się z 2 faz:
 \paragraph{1:} pobieranie informacji przez x dni.\\
 w tej fazie przez x dni, gdzie x jest parametrem strategii będę szukał kosztu dającego największy zysk.
-Będzie to mało-inteligętne przeszukiwanie kosztów, od najmniejszego do największego.
+Będzie to mało inteligentne przeszukiwanie kosztów, od najmniejszego do największego.
 \paragraph{2:} ulepszanie\\
 Teraz będę przemieszczał się o $\Delta$ codziennie z kosztem, w kierunku wzrastającego zysku.
 
@@ -291,9 +290,6 @@ Wyniki dla małych M, z którymi strategia sobie dość dobrze radzi, (dla $\Del
   0.211 734.000 817.600 741.200 893.200 931.700 \\
 "Całkowity:  14824.811 zł"\\
 
-\subsection{Strategia ide\_gdzie\_lepiej\_2 }
-
-    
 \subsection{Strategia ide\_gdzie\_lepiej\_2 przykładowe problemy}
 Strategia przekracza granicę bardzo często (średnio co 4 jeżeli jest w pobliżu niej) co nie jest dobre. Jak na wykresie:
 \begin{center}
@@ -304,13 +300,12 @@ Strategia przekracza granicę bardzo często (średnio co 4 jeżeli jest w pobli
 Można temu zaradzić 
 podobnie jak różniły się strategie 'szukam' od 'szukam\_wyzej' priorytet dając poszukiwaniom wyższych kosztów.
 Tą strategię można także poprawić w ten sposób, że zamiast 1 maksimum wybieramy parę (ale niedużo 3-4) różne punktu z zakresu
-kosztów od 0zł do C=10zł i osobno (co 3-4) 
+kosztów od 0zł do C=10zł i zrobić osobne przeszukiwania.
 
 \section{Wnioski}
 Strategia 'szukam' w średnim przypadku nie daje złych wyników. Jednak narażona jest na klęskę w niektórych przypadkach. 
 Następna strategia 'szukam\_wyzej' jest lepiej uodporniona na przypadki gwałtownego spadku zysków poniżej granicy kosztów.
 Strategia ide\_gdzie\_lepiej\_2 jest przygotowana na sprajne przypadki. Ma możliwości kalibracji przez większą ilość parametrów, 
-przez co staje się bardziej skalowalna (przygotowana na większą ilość\/ mniejszą ilość dni).
+przez co staje się bardziej skalowalna (przygotowana na większą ilość\/ mniejszą ilość dni). 
 
-\subsection
 \end{document}

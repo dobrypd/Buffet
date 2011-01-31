@@ -1,6 +1,18 @@
-AUTHOR: Piotr Dobrowolski
-(c) 2011
-26-01-2011
+#AUTHOR: Piotr Dobrowolski
+#(c) 2011
+#31-01-2011
 
-//---------------------
-R - project v 2.12.0
+#//---------------------
+#R - project v 2.12.0
+
+#przyklad zastosowania
+#----- inicjowanie
+source("dane.r")
+source("strategie.r")
+source("testowanie.r")
+
+#----- test strategii
+test_LO(100, 5, generuj_grupy(5), strategia_szukam_wyzej, symulacja)
+   
+#----- testy
+testy_szukaj_najgorszych(strategia_ide_gdzie_lepiej_2, symulacja, 2)
