@@ -3,13 +3,13 @@
 #plik: testowanie.r
 
 # #####generowanie grup (losowe)##### #
-generuj_grupy =  function(k, rozbicie = 100) {
+generuj_grupy =  function(k) {
    Gr = data.frame(c(0,0,0), c(0,0,0), c(0,0,0), c(0,0,0), c(0,0,0))
    for(i in 1:k) {
       #Gr[123, 12345]
-      Gr[1, i] = sample(seq(0, C, by=(C/rozbicie)), 1)
-      Gr[2, i] = sample(seq(0, 0.5, by=(0.5/rozbicie)), 1)
-      Gr[3, i] = sample(seq(0.5, 1, by=(0.5/rozbicie)), 1)
+      Gr[1, i] = runif(1, 0, C)
+      Gr[2, i] = runif(1, 0, 0.5)
+      Gr[3, i] = runif(1, 0.5, 1)
    }
    return(Gr)
 }
@@ -108,7 +108,7 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    
    #old.par = par(no.readonly = TRUE)
    #par(mfrow=c(2,1))
-   pdf("Zysk_strategii_porownanie.pdf")
+   pdf("z.pdf")
    plot(Zysk ~ Dzień, data=wyniki, col = 
             ifelse(Strategia=="Optymalna", colors[1], ifelse(Strategia=="Losowa", colors[2], colors[3])), 
             xlab="Dzień", ylab="Zysk", pch=16,
@@ -125,7 +125,7 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    lines(wyniki.spline.Test, col="blue")
    legend("bottomright", legend=c("Optymalna", "Losowa", "Testowana"), col=c("red", "green", "blue"), lwd=2)
    dev.off()
-   pdf("Ksztaltowanie_sie_kosztu.pdf")
+   pdf("k.pdf")
    #koszt
    x <- 1:M
    y <- testowanie[x,k+2]

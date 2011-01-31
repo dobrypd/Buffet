@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2010.11.13)  31 JAN 2011 02:15
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2010.11.13)  31 JAN 2011 06:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -458,14 +458,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 15.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-) (./raport.toc
-LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10> on input line 3.
-LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <7> on input line 3.
-LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <5> on input line 3.
-)
+) (./raport.toc)
 \tf@toc=\write3
 \openout3 = `raport.toc'.
 
@@ -475,39 +468,994 @@ Overfull \hbox (3.33391pt too wide) in paragraph at lines 20--23
 -sto-wa-nia: 1-wizualizajca
  []
 
-[1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (2.7812pt too wide) in paragraph at lines 32--35
  \OT4/cmr/bx/n/10 test[]LO = func-tion(M, k, Gru-py, stra-te-gia, me-to-da[]sym
 ulacji)::[] \OT4/cmr/m/n/10 Funk-
  []
 
+[1
 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (42.89676pt too wide) in paragraph at lines 36--39
  \OT4/cmr/bx/n/10 te-sty[]szukaj[]najgorszych[]M = func-tion(Grupy, k, stra-te-
 gia, me-to-da[]symulacji,
  []
 
-[2] [3] (./raport.aux) ) 
-Here is how much of TeX's memory you used:
- 2139 strings out of 493738
- 27297 string characters out of 3148796
- 81476 words of memory out of 3000000
- 5377 multiletter control sequences out of 15000+200000
- 16259 words of font info for 51 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
- 38i,6n,24p,232b,199s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-dist/fonts/enc/dvips/pl/plrm.enc}</us
-r/share/texmf-dist/fonts/type1/public/pl/plbx10.pfb></usr/share/texmf-dist/font
-s/type1/public/pl/plbx12.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr10
-.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texmf-d
-ist/fonts/type1/public/pl/plr17.pfb></usr/share/texmf-dist/fonts/type1/public/p
-l/plr9.pfb>
-Output written on raport.pdf (3 pages, 55734 bytes).
-PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 54.
+(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <10> on input line 54.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <7> on input line 54.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <5> on input line 54.
+ [2]
+<wykresy/problemy/Zysk_strategii_porownanie_koszt_troche_za_maly.pdf, id=19, 50
+5.89pt x 505.89pt>
+File: wykresy/problemy/Zysk_strategii_porownanie_koszt_troche_za_maly.pdf Graph
+ic file (type pdf)
 
+<use wykresy/problemy/Zysk_strategii_porownanie_koszt_troche_za_maly.pdf>
+<wykresy/problemy/Ksztaltowanie_sie_kosztu_troche_za_maly.pdf, id=20, 505.89pt 
+x 505.89pt>
+File: wykresy/problemy/Ksztaltowanie_sie_kosztu_troche_za_maly.pdf Graphic file
+ (type pdf)
+ <use wykresy/problemy/Ksztaltowanie_sie_kosztu_troche_za_maly.pdf>
+[3 <./wykresy/problemy/Zysk_strategii_porownanie_koszt_troche_za_maly.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
+
+ []
+
+<wykresy/szukamz1.pdf, id=31, 505.89pt x 505.89pt>
+File: wykresy/szukamz1.pdf Graphic file (type pdf)
+ <use wykresy/szukamz1.pdf>
+<wykresy/szukamk1.pdf, id=32, 505.89pt x 505.89pt>
+File: wykresy/szukamk1.pdf Graphic file (type pdf)
+ <use wykresy/szukamk1.pdf>
+[4 <./wykresy/problemy/Ksztaltowanie_sie_kosztu_troche_za_maly.pdf>]
+<wykresy/szukamz2.pdf, id=41, 505.89pt x 505.89pt>
+File: wykresy/szukamz2.pdf Graphic file (type pdf)
+ <use wykresy/szukamz2.pdf>
+<wykresy/szukamk2.pdf, id=42, 505.89pt x 505.89pt>
+File: wykresy/szukamk2.pdf Graphic file (type pdf)
+ <use wykresy/szukamk2.pdf>
+[5 <./wykresy/szukamz1.pdf> <./wykresy/szukamk1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 95--124
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--124
+
+ []
+
+[6 <./wykresy/szukamz2.pdf> <./wykresy/szukamk2.pdf>]
+<wykresy/szukamz3.pdf, id=71, 505.89pt x 505.89pt>
+File: wykresy/szukamz3.pdf Graphic file (type pdf)
+ <use wykresy/szukamz3.pdf>
+<wykresy/szukamk3.pdf, id=72, 505.89pt x 505.89pt>
+File: wykresy/szukamk3.pdf Graphic file (type pdf)
+ <use wykresy/szukamk3.pdf>
+[7] <wykresy/szukamz4.pdf, id=77, 505.89pt x 505.89pt>
+File: wykresy/szukamz4.pdf Graphic file (type pdf)
+
+<use wykresy/szukamz4.pdf> <wykresy/szukamk4.pdf, id=78, 505.89pt x 505.89pt>
+File: wykresy/szukamk4.pdf Graphic file (type pdf)
+
+<use wykresy/szukamk4.pdf> [8 <./wykresy/szukamz3.pdf> <./wykresy/szukamk3.pdf>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 135--149
+
+ []
+
+[9 <./wykresy/szukamz4.pdf> <./wykresy/szukamk4.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 150--164
+
+ []
+
+<wykresy/szukamz5.pdf, id=107, 505.89pt x 505.89pt>
+File: wykresy/szukamz5.pdf Graphic file (type pdf)
+ <use wykresy/szukamz5.pdf>
+<wykresy/szukamk5.pdf, id=108, 505.89pt x 505.89pt>
+File: wykresy/szukamk5.pdf Graphic file (type pdf)
+ <use wykresy/szukamk5.pdf>
+[10] <wykresy/szukamz6.pdf, id=112, 505.89pt x 505.89pt>
+File: wykresy/szukamz6.pdf Graphic file (type pdf)
+
+<use wykresy/szukamz6.pdf> <wykresy/szukamk6.pdf, id=113, 505.89pt x 505.89pt>
+File: wykresy/szukamk6.pdf Graphic file (type pdf)
+
+<use wykresy/szukamk6.pdf> [11 <./wykresy/szukamz5.pdf> <./wykresy/szukamk5.pdf
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--189
+
+ []
+
+[12 <./wykresy/szukamz6.pdf> <./wykresy/szukamk6.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 190--204
+
+ []
+
+<wykresy/szukamz7.pdf, id=143, 505.89pt x 505.89pt>
+File: wykresy/szukamz7.pdf Graphic file (type pdf)
+ <use wykresy/szukamz7.pdf>
+<wykresy/szukamk7.pdf, id=144, 505.89pt x 505.89pt>
+File: wykresy/szukamk7.pdf Graphic file (type pdf)
+ <use wykresy/szukamk7.pdf>
+[13] <wykresy/szukamz8.pdf, id=149, 505.89pt x 505.89pt>
+File: wykresy/szukamz8.pdf Graphic file (type pdf)
+
+<use wykresy/szukamz8.pdf> <wykresy/szukamk8.pdf, id=150, 505.89pt x 505.89pt>
+File: wykresy/szukamk8.pdf Graphic file (type pdf)
+
+<use wykresy/szukamk8.pdf> [14 <./wykresy/szukamz7.pdf> <./wykresy/szukamk7.pdf
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 214--228
+
+ []
+
+[15 <./wykresy/szukamz8.pdf> <./wykresy/szukamk8.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 230--244
+
+ []
+
+[16]
+Overfull \hbox (13.01753pt too wide) in paragraph at lines 272--274
+\OT4/cmr/m/n/10 Testy dla wie-lu pa-ra-me-trów R: \OT4/cmr/m/it/10 te-sty[]szuk
+aj[]najgorszych(strategia[]ide[]gdzie[]lepiej[]2,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--274
+
+ []
+
+<wykresy/lepiejz1.pdf, id=183, 505.89pt x 505.89pt>
+File: wykresy/lepiejz1.pdf Graphic file (type pdf)
+ <use wykresy/lepiejz1.pdf>
+<wykresy/lepiejk1.pdf, id=184, 505.89pt x 505.89pt>
+File: wykresy/lepiejk1.pdf Graphic file (type pdf)
+ <use wykresy/lepiejk1.pdf>
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 282--293
+
+ []
+
+[18 <./wykresy/lepiejz1.pdf> <./wykresy/lepiejk1.pdf>]
+<wykresy/lepiejz2.pdf, id=202, 505.89pt x 505.89pt>
+File: wykresy/lepiejz2.pdf Graphic file (type pdf)
+ <use wykresy/lepiejz2.pdf>
+<wykresy/lepiejk2.pdf, id=203, 505.89pt x 505.89pt>
+File: wykresy/lepiejk2.pdf Graphic file (type pdf)
+ <use wykresy/lepiejk2.pdf>
+[19] [20 <./wykresy/lepiejz2.pdf> <./wykresy/lepiejk2.pdf>]
+Overfull \hbox (1.73953pt too wide) in paragraph at lines 310--314
+\OT4/cmr/m/n/10 »o-na jest na kl¦-sk¦ w nie-któ-rych przy-pad-kach. Na-st¦p-na 
+stra-te-gia 'szu-kam[]wyzej'
+ []
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+? Q
+OK, entering \batchmode...
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@@par 
+l.316 \end
+          {document}
+(That makes 100 errors; please try again.) 
+Here is how much of TeX's memory you used:
+ 2271 strings out of 493738
+ 30501 string characters out of 3148796
+ 80476 words of memory out of 3000000
+ 5482 multiletter control sequences out of 15000+200000
+ 17342 words of font info for 53 fonts, out of 3000000 for 9000
+ 714 hyphenation exceptions out of 8191
+ 103i,6n,109p,233b,210s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+!  ==> Fatal error occurred, no output PDF file produced!
