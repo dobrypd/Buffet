@@ -1,6 +1,18 @@
 \contentsline {section}{\numberline {1}Model}{1}
-\contentsline {section}{\numberline {2}Strategie}{1}
-\contentsline {subsection}{\numberline {2.1}Strategia losowa}{1}
-\contentsline {subsection}{\numberline {2.2}Strategia optymalna}{1}
-\contentsline {section}{\numberline {3}Testowanie}{1}
-\contentsline {section}{\numberline {4}Wnioski}{1}
+\contentsline {section}{\numberline {2}O testowaniu}{1}
+\contentsline {subsection}{\numberline {2.1}Za\IeC {\l }o\IeC {\.z}enia}{1}
+\contentsline {subsection}{\numberline {2.2}Symulacja}{2}
+\contentsline {paragraph}{symulacja = function(M, k, Grupy, strategia, wypisuj = 0)::}{2}
+\contentsline {subsection}{\numberline {2.3}Konkretna symulacja - testowanie}{2}
+\contentsline {paragraph}{test\_LO = function(M, k, Grupy, strategia, metoda\_symulacji)::}{2}
+\contentsline {subsection}{\numberline {2.4}Grupy test\IeC {\'o}w}{2}
+\contentsline {paragraph}{testy\_szukaj\_najgorszych\_M = function(Grupy, k, strategia, metoda\_symulacji, wypisuj = 0)::}{2}
+\contentsline {paragraph}{testy\_szukaj\_najgorszych = function(strategia, metoda\_symulacji, wypisuj = 0)::}{2}
+\contentsline {section}{\numberline {3}Strategie}{2}
+\contentsline {subsection}{\numberline {3.1}Strategie do testowania}{2}
+\contentsline {paragraph}{Strategia - losuj\IeC {\k e} koszt ka\IeC {\.z}dego dnia}{2}
+\contentsline {paragraph}{Strategie - optymalna, znam grupy}{2}
+\contentsline {subsection}{\numberline {3.2}Strategia szukam}{3}
+\contentsline {section}{\numberline {4}Testowanie}{3}
+\contentsline {subsection}{\numberline {4.1}Wynik 1}{3}
+\contentsline {section}{\numberline {5}Wnioski}{3}

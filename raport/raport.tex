@@ -7,7 +7,7 @@
 \usepackage[pdftex]{color,graphicx}
 
 \author{Piotr Dobrowolski}
-\title{Raport \\{\small Projekt Zaliczenowy z Rachunku Prawdopodobieństwa i Statystyki} }
+\title{Raport \\{\small Projekt Zaliczeniowy z Rachunku Prawdopodobieństwa i Statystyki} }
 \date{\today}
 \frenchspacing
 
@@ -15,9 +15,42 @@
 \maketitle
 \tableofcontents
 \section{Model}
+\section{O testowaniu}
+\subsection{Założenia}
+Testowanie strategii w moim projekcie odbywa się poprzez wielokrotne symulowanie kupowania
+obiadów przez klientów. Podejście do testowania: 1-wizualizajca danej, konkretnej, symulacji, oraz 2-
+wielokrotne symulowanie - szukanie najgorszych danych wejściowych.
+\subsection{Symulacja}
+\paragraph{symulacja = function(M, k, Grupy, strategia, wypisuj = 0)::} Dla danych parametrów M, k, Grupy, strategia
+funkcja przeprowadza symulacje kupowania obiadów przez klientów. Każdy klient (wszystkich jest N) przychodzi codziennie
+do bufetu i kupuje, bądź też nie, obiad. Każdego dnia pyta się strategii o koszt, a pod koniec dnia przekazuje
+strategii ilość kupionych obiadów.
+\subsection{Konkretna symulacja - testowanie}
+Testowanie strategii na jednej, konkretnej symulacji. Polega na porównaniu działania strategii do strategii optymalnej
+i losowaj, gdzie optymalna (opisana później) stanowi pewne maksimum do którego chcę, aby dążyła (w przeciągu dni) testowana strategia
+, a losowa minimum. 
+\paragraph{test\_LO = function(M, k, Grupy, strategia, metoda\_symulacji)::} Funkcja tworzy wykresy porównujące wybraną
+strategię do optymalnej i losowej. Dzięki temu można przeanalizować jak w czasie (dni) działa dana strategia. Wypisywane jest także
+podsumowanie zysków każdego dnia, oraz zysk całkowity, uzyskany przez M dni.
+\subsection{Grupy testów}
+\paragraph{testy\_szukaj\_najgorszych\_M = function(Grupy, k, strategia, metoda\_symulacji, wypisuj = 0)::} Funkcja testuje strategię
+ze względu na radzenie sobie z różną ilością dni. Chodzi o to żeby strategia jak najszybciej umożliwiała dobrać
+najlepszy koszt.
+\paragraph{testy\_szukaj\_najgorszych = function(strategia, metoda\_symulacji, wypisuj = 0)::} Funkcja wykożystuje tę powyższą, ale teraz
+wykonuje testy dla różnych grup klientów, które dobiera losowo. Dzięki niej można określić (i zmieniając parametry funkcji powyższej
+, czyli ilości dni jakie będą testowane) dla jakich ilości dostępnych dni, oraz dla jakich grup strategia najgorzej sobie radzi.
+\\ Dzięki tej funkcji (przy parametrze wypisuj > 0) można także uzystać informacje o atomowych testach występujących w tej grupie testów
+. Dzięki temu można przeanalizować daną strategię.
+
 \section{Strategie}
-\subsection{Strategia losowa}
-\subsection{Strategia optymalna}
+Poniżej znajduje się 
+\subsection{Strategie do testowania}
+\paragraph{Strategia - losuję koszt każdego dnia}
+\paragraph{Strategie - optymalna, znam grupy}
+\subsection{Strategia szukam}
+
 \section{Testowanie}
+\subsection{Wynik 1}
+
 \section{Wnioski}
 \end{document}

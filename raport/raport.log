@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2010.11.13)  26 JAN 2011 00:46
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010/Arch Linux) (format=pdflatex 2010.11.13)  31 JAN 2011 02:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -469,27 +469,45 @@ LaTeX Font Info:    External font `plex10' loaded for size
 \tf@toc=\write3
 \openout3 = `raport.toc'.
 
- [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./raport.aux) ) 
+Overfull \hbox (3.33391pt too wide) in paragraph at lines 20--23
+\OT4/cmr/m/n/10 wa-nie ku-po-wa-nia obia-dów przez klien-tów. Po-dej-±cie do te
+-sto-wa-nia: 1-wizualizajca
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (2.7812pt too wide) in paragraph at lines 32--35
+ \OT4/cmr/bx/n/10 test[]LO = func-tion(M, k, Gru-py, stra-te-gia, me-to-da[]sym
+ulacji)::[] \OT4/cmr/m/n/10 Funk-
+ []
+
+
+Overfull \hbox (42.89676pt too wide) in paragraph at lines 36--39
+ \OT4/cmr/bx/n/10 te-sty[]szukaj[]najgorszych[]M = func-tion(Grupy, k, stra-te-
+gia, me-to-da[]symulacji,
+ []
+
+[2] [3] (./raport.aux) ) 
 Here is how much of TeX's memory you used:
- 2136 strings out of 493738
- 27262 string characters out of 3148796
- 78475 words of memory out of 3000000
- 5375 multiletter control sequences out of 15000+200000
- 15763 words of font info for 50 fonts, out of 3000000 for 9000
+ 2139 strings out of 493738
+ 27297 string characters out of 3148796
+ 81476 words of memory out of 3000000
+ 5377 multiletter control sequences out of 15000+200000
+ 16259 words of font info for 51 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  38i,6n,24p,232b,199s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/shar
-e/texmf-dist/fonts/enc/dvips/pl/plrm.enc}</usr/share/texmf-dist/fonts/type1/pub
-lic/pl/plbx10.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plbx12.pfb></usr
-/share/texmf-dist/fonts/type1/public/pl/plr10.pfb></usr/share/texmf-dist/fonts/
-type1/public/pl/plr12.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr17.pf
-b>
-Output written on raport.pdf (1 page, 37735 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/pl/plrm.enc}</us
+r/share/texmf-dist/fonts/type1/public/pl/plbx10.pfb></usr/share/texmf-dist/font
+s/type1/public/pl/plbx12.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr10
+.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texmf-d
+ist/fonts/type1/public/pl/plr17.pfb></usr/share/texmf-dist/fonts/type1/public/p
+l/plr9.pfb>
+Output written on raport.pdf (3 pages, 55734 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+ 39 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

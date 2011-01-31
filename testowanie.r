@@ -2,9 +2,9 @@
 #autor: Piotr Dobrowolski
 #plik: testowanie.r
 
-generuj_grupy =  function(k) {
+# #####generowanie grup (losowe)##### #
+generuj_grupy =  function(k, rozbicie = 100) {
    Gr = data.frame(c(0,0,0), c(0,0,0), c(0,0,0), c(0,0,0), c(0,0,0))
-   rozbicie = 1000
    for(i in 1:k) {
       #Gr[123, 12345]
       Gr[1, i] = sample(seq(0, C, by=(C/rozbicie)), 1)
@@ -15,8 +15,6 @@ generuj_grupy =  function(k) {
 }
 
 # #####SYMULACJA##### #
-#return c(ilu_kupilo, ilu_kupilo_grupa, koszt, strategia.wynik_koncowy()) 
-   #gdzie każda z tych struktur daje mi informacje dla każdego dnia
 symulacja = function(M, k, Grupy, strategia, wypisuj = 0) {
    source("./dane.r")
    strategia[[1]](M)                         #inicjuj
@@ -51,7 +49,8 @@ symulacja = function(M, k, Grupy, strategia, wypisuj = 0) {
 }
 
 
-#wizualizacja powstałych grup
+# #####wizualizacja powstałych grup##### #
+#wynik - wykresy
 wizualizacja_grup = function(k, Gr) {
    old.par = par(no.readonly = TRUE)
    par(mfrow=c(3,2))
@@ -71,7 +70,7 @@ wizualizacja_grup = function(k, Gr) {
 }
 
 
-#test porównujący strategię do losowej i optymalnej
+# #####test porównujący strategię do losowej i optymalnej##### #
 #wynik - wykresy
 test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    source("./dane.r")            #stałe
@@ -140,7 +139,7 @@ test_LO = function(M, k, Grupy, strategia, metoda_symulacji) {
    #par(old.par)
 }
 
-#do zbadania fajnosci strategii interesuje mnie zysk
+# #####licze jaki zysk uzyskala strategia po symulacji##### #
 test_zysk = function(M, k, Grupy, strategia, metoda_symulacji, wypisuj = 0) {
    source("./dane.r")            #stałe
    source("./strategie.r")       #strategie
@@ -153,6 +152,7 @@ test_zysk = function(M, k, Grupy, strategia, metoda_symulacji, wypisuj = 0) {
    return(sum(zysk))
 }
 
+# #####testy szukajace najgorszego parametru M##### #
 testy_szukaj_najgorszych_M = function(Grupy, k, strategia, metoda_symulacji, wypisuj = 0) {
    if (wypisuj > 0) {
       print("SZUKAM NAJGORSZYCH WYNIKOW DLA ROZNYCH M, K i ROZNYCH GRUP")
@@ -188,7 +188,7 @@ testy_szukaj_najgorszych_M = function(Grupy, k, strategia, metoda_symulacji, wyp
          najgorszy_zysk = aktualny_zysk
          najgorsze_M = i
       }
-      if (wypisuj) {
+      if (wypisuj > 0) {
          print(paste("[M=", i, "]:: wynik= ", aktualny_zysk))
       }
    }
@@ -196,7 +196,8 @@ testy_szukaj_najgorszych_M = function(Grupy, k, strategia, metoda_symulacji, wyp
    return (c(najgorsze_M, najgorszy_zysk))
 }
 
-testy_szukaj_najgorszych_grup = function(strategia, metoda_symulacji, wypisuj = 0) {
+# #####testy szukajace najgorszej grupy##### #
+testy_szukaj_najgorszych = function(strategia, metoda_symulacji, wypisuj = 0) {
    najgorszy_zysk_gr = C * N  #najgorszy osiagniety zysk
    najgorsza_grupa = 0        #grupa dla jakiej ten zysk osiagnieto
    najgorsze_M = 0            #najgorsze M dla jakiego ten zysk osiagnieto
@@ -226,7 +227,7 @@ testy_szukaj_najgorszych_grup = function(strategia, metoda_symulacji, wypisuj = 
       }
       zysk_optymalny = sum((C - optymalny)*pr) / k
       if (wypisuj > 0) {
-         print(paste("::{i=", i, "}:: aktualny najgorszy zysk= ", wynik[2], ", dla M= ", wynik[1], "optymalny= ", zysk_optymalny * N))
+         print(paste("::{i=", i, "}:: aktualny najgorszy zysk= ", wynik[2], ", dla M= ", wynik[1], "najlepszy możliwy= ", zysk_optymalny * N))
       }
    }
    if (wypisuj > 0) {
